@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">89.55% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>60/67</span>
+                <span class='fraction'>67/67</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">57.77% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>26/45</span>
+                <span class='fraction'>30/45</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">90% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>27/30</span>
+                <span class='fraction'>29/29</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">92.85% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>26/28</span>
+                <span class='fraction'>28/28</span>
             </div>
         
             
@@ -126,9 +126,8 @@
 <a name='L61'></a><a href='#L61'>61</a>
 <a name='L62'></a><a href='#L62'>62</a>
 <a name='L63'></a><a href='#L63'>63</a>
-<a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1446x</span>
+<a name='L64'></a><a href='#L64'>64</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1630x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">24x</span>
 <span class="cline-any cline-yes">6x</span>
@@ -138,13 +137,11 @@
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -154,7 +151,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">14x</span>
@@ -191,34 +189,33 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Movie,Category } from "../database/models";
-<span class="branch-5 cbranch-no" title="branch not covered" ><span class="branch-4 cbranch-no" title="branch not covered" ><span class="branch-3 cbranch-no" title="branch not covered" ><span class="branch-2 cbranch-no" title="branch not covered" ><span class="branch-1 cbranch-no" title="branch not covered" ><span class="branch-2 cbranch-no" title="branch not covered" ><span class="branch-1 cbranch-no" title="branch not covered" >import { Op } from "sequelize";<span class="cstat-no" title="statement not covered" ></span></span></span></span></span></span></span></span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Movie, Category } from "../database/models";
+<span class="branch-5 cbranch-no" title="branch not covered" ><span class="branch-4 cbranch-no" title="branch not covered" ><span class="branch-3 cbranch-no" title="branch not covered" ><span class="branch-2 cbranch-no" title="branch not covered" ><span class="branch-1 cbranch-no" title="branch not covered" ><span class="branch-2 cbranch-no" title="branch not covered" ><span class="branch-1 cbranch-no" title="branch not covered" >import { Op } from "sequelize";<span class="missing-if-branch" title="if path not taken" >I</span></span></span></span></span></span></span></span>
 &nbsp;
 export const addMovie = async (movie) =&gt; {
   return await Movie.create(movie)<span class="branch-2 cbranch-no" title="branch not covered" >;</span>
 };
 &nbsp;
-export const getAllMovies = async (limit, offset) =&gt; {
+export const getAllMovies = async () =&gt; {
   const movies = await Movie.findAndCountAll({
-    limit,
-    offset,
-    order: [["createdAt", "DESC"]],
+    order: [["rating", "DESC"]],
   });
   return movies<span class="branch-2 cbranch-no" title="branch not covered" >;</span>
 };
 &nbsp;
-export const <span class="fstat-no" title="function not covered" >searchMovies </span>= <span class="fstat-no" title="function not covered" >async (l</span>imit, offset, q<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >) =&gt; {</span></span></span></span>
-  const <span class="cstat-no" title="statement not covered" >movies<span class="cstat-no" title="statement not covered" > = await M</span>ovie.findAndCountAll({</span>
-    limit,
-    offset,
+export const searchMoviesByRating = async (rate) =&gt; {
+  const movies = await Movie.findAndCountAll({
     where: {
-      name: {
-        [Op.like]: `%${q}%`,
+      rating: {
+        [Op.and]: {
+          [Op.lt]: 100,
+          [Op.gte]: rate,
+        },
       },
     },
-    order: [["createdAt", "DESC"]],
+    order: [["rating", "DESC"]],
   });
-  return movies<span class="cstat-no" title="statement not covered" >;</span>
+  return movies<span class="branch-2 cbranch-no" title="branch not covered" >;</span>
 };
 &nbsp;
 export const getMovieById = async (id) =&gt; {
@@ -262,7 +259,7 @@ export const getMovieCategories = async (id) =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-11-23T12:51:44.805Z
+                at 2022-11-23T17:37:23.814Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

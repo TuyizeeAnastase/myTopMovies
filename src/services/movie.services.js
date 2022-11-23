@@ -1,29 +1,28 @@
-import { Movie,Category } from "../database/models";
+import { Movie, Category } from "../database/models";
 import { Op } from "sequelize";
 
 export const addMovie = async (movie) => {
   return await Movie.create(movie);
 };
 
-export const getAllMovies = async (limit, offset) => {
+export const getAllMovies = async () => {
   const movies = await Movie.findAndCountAll({
-    limit,
-    offset,
-    order: [["createdAt", "DESC"]],
+    order: [["rating", "DESC"]],
   });
   return movies;
 };
 
-export const searchMovies = async (limit, offset, q) => {
+export const searchMoviesByRating = async (rate) => {
   const movies = await Movie.findAndCountAll({
-    limit,
-    offset,
     where: {
-      name: {
-        [Op.like]: `%${q}%`,
+      rating: {
+        [Op.and]: {
+          [Op.lt]: 100,
+          [Op.gte]: rate,
+        },
       },
     },
-    order: [["createdAt", "DESC"]],
+    order: [["rating", "DESC"]],
   });
   return movies;
 };

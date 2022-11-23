@@ -14,6 +14,10 @@ module.exports = {
    await queryInterface.bulkInsert("Movies",[
     {
       name:'Black Panther',
+      category_id:[1],
+      duration:23,
+      rating:12,
+      description:'the description',
       createdAt: new Date(),
       updatedAt: new Date(),
     }

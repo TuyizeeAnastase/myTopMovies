@@ -1,9 +1,9 @@
-import { expect, request, use } from "chai";
+import { expect,  use } from "chai";
 import chaiHttp from "chai-http";
 import "dotenv/config";
 import { it } from "mocha";
-import { newMovie } from "./mocks/movie";
-import { addMovie, searchMovies,getAllMovies,getMovieById,updateMovie,deleteMovie } from "../src/services/movie.services";
+import { addMovie, searchMoviesByRating,getAllMovies,getMovieById,updateMovie,deleteMovie } from "../src/services/movie.services";
+import {getAllCategories} from '../src/services/category.service'
 
 use(chaiHttp);
 
@@ -58,4 +58,21 @@ it("Should delete movie", async () => {
       expect(e.toString()).toMatch(e.message);
     }
   });
+  it("Should rank movies", async () => {
+    await searchMoviesByRating(2);
+    try {
+      await searchMoviesByRating(2);
+    } catch (e) {
+      expect(e.toString()).toMatch(e.message);
+    }
+  });
+  it("Should getALl categories", async () => {
+    await getAllCategories();
+    try {
+      await getAllCategories();
+    } catch (e) {
+      expect(e.toString()).toMatch(e.message);
+    }
+  });
+  
   

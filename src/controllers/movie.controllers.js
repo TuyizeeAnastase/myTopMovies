@@ -1,6 +1,6 @@
 import {
   getAllMovies,
-  searchMovies,
+  searchMoviesByRating,
   addMovie,
   updateMovie,
   deleteMovie,
@@ -11,9 +11,9 @@ export class movieControllers {
   async getMovies(req, res) {
     try {
       let movies;
-      const { q } = req.query;
-      if (q) {
-        movies = await searchMovies((q.toLowerCase()));
+      const { rate } = req.query;
+      if (rate) {
+        movies = await searchMoviesByRating(rate);
       } else {
         movies = await getAllMovies();
       }
